@@ -1,0 +1,415 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#061713">
+
+<title>FTK GABA BHAI | Football Insights</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --green:#00F5A0;
+    --blue:#00A8FF;
+    --bg:#061713;
+}
+
+body{
+    min-height:100svh;
+    background:
+    radial-gradient(ellipse at 15% 15%,rgba(0,245,160,.15),transparent 40%),
+    radial-gradient(ellipse at 90% 80%,rgba(0,168,255,.16),transparent 40%),
+    #061713;
+    color:white;
+    font-family:'Inter',sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    position:relative;
+}
+
+/* Background effects */
+
+body::before,
+body::after{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    filter:blur(100px);
+    opacity:.25;
+    pointer-events:none;
+    animation:float 8s ease-in-out infinite alternate;
+}
+
+body::before{
+    background:#00F5A0;
+    top:-120px;
+    left:-100px;
+}
+
+body::after{
+    background:#008CFF;
+    bottom:-130px;
+    right:-100px;
+    animation-delay:2s;
+}
+
+@keyframes float{
+    from{transform:translate(0,0);}
+    to{transform:translate(50px,40px);}
+}
+
+/* Moving particles */
+
+.particle{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:var(--green);
+    border-radius:50%;
+    opacity:.5;
+    box-shadow:0 0 12px var(--green);
+    animation:rise linear infinite;
+    pointer-events:none;
+}
+
+.p1{left:12%;bottom:-10px;animation-duration:9s;}
+.p2{left:80%;bottom:-10px;animation-duration:12s;animation-delay:2s;}
+.p3{left:45%;bottom:-10px;animation-duration:10s;animation-delay:4s;}
+.p4{left:92%;bottom:-10px;animation-duration:8s;animation-delay:1s;}
+
+@keyframes rise{
+    to{transform:translateY(-110vh) translateX(35px);opacity:0;}
+}
+
+/* Main card */
+
+.container{
+    width:100%;
+    max-width:430px;
+    padding:20px;
+    position:relative;
+    z-index:2;
+}
+
+.card{
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(0,245,160,.22);
+    border-radius:28px;
+    padding:30px 23px 26px;
+    text-align:center;
+    background:linear-gradient(
+        145deg,
+        rgba(12,43,35,.96),
+        rgba(5,21,30,.96)
+    );
+    box-shadow:
+    0 20px 70px rgba(0,0,0,.5),
+    0 0 35px rgba(0,245,160,.07);
+}
+
+/* Decorative line */
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:2px;
+    background:linear-gradient(90deg,transparent,var(--green),var(--blue),transparent);
+    animation:shine 4s linear infinite;
+}
+
+@keyframes shine{
+    to{left:100%;}
+}
+
+/* Status */
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 13px;
+    border-radius:30px;
+    border:1px solid rgba(0,245,160,.25);
+    background:rgba(0,245,160,.07);
+    color:#8CFFD2;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1.5px;
+}
+
+.dot{
+    width:7px;
+    height:7px;
+    background:var(--green);
+    border-radius:50%;
+    box-shadow:0 0 10px var(--green);
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    50%{opacity:.3;transform:scale(.75);}
+}
+
+/* Logo */
+
+.logo-box{
+    width:112px;
+    height:112px;
+    margin:24px auto 20px;
+    border-radius:27px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(145deg,rgba(0,245,160,.15),rgba(0,168,255,.15));
+    border:1px solid rgba(0,245,160,.3);
+    box-shadow:0 0 35px rgba(0,245,160,.13);
+    animation:logoFloat 4s ease-in-out infinite;
+}
+
+.logo-box img{
+    width:86%;
+    height:86%;
+    object-fit:contain;
+    border-radius:18px;
+}
+
+@keyframes logoFloat{
+    50%{transform:translateY(-7px);}
+}
+
+/* Branding */
+
+.brand{
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(23px,7vw,31px);
+    font-weight:800;
+    letter-spacing:-1px;
+    line-height:1.35;
+    background:linear-gradient(90deg,#ffffff 10%,#00F5A0 55%,#00A8FF 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.subtitle{
+    margin-top:10px;
+    font-size:11px;
+    color:#9CBAB1;
+    letter-spacing:3px;
+    font-weight:700;
+}
+
+/* Divider */
+
+.divider{
+    width:65px;
+    height:3px;
+    border-radius:10px;
+    margin:23px auto;
+    background:linear-gradient(90deg,var(--green),var(--blue));
+}
+
+/* Description */
+
+.heading{
+    font-size:20px;
+    font-weight:800;
+    line-height:1.4;
+    margin-bottom:9px;
+}
+
+.description{
+    color:#A6BDB6;
+    font-size:12px;
+    line-height:1.8;
+    max-width:290px;
+    margin:auto;
+}
+
+/* Feature box */
+
+.features{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin:24px 0;
+}
+
+.feature{
+    padding:13px 7px;
+    border-radius:13px;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.07);
+    font-size:11px;
+    font-weight:700;
+    color:#D8F5E9;
+}
+
+.feature span{
+    display:block;
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+/* CTA */
+
+.join-btn{
+    width:100%;
+    border:0;
+    outline:none;
+    padding:17px;
+    border-radius:14px;
+    color:#032019;
+    background:linear-gradient(100deg,#00F5A0,#00C9C8,#00A8FF);
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    font-weight:900;
+    letter-spacing:1px;
+    cursor:pointer;
+    box-shadow:0 8px 28px rgba(0,245,160,.2);
+    transition:.25s ease;
+}
+
+.join-btn:active{
+    transform:scale(.97);
+}
+
+.join-btn:hover{
+    box-shadow:0 8px 35px rgba(0,245,160,.4);
+}
+
+.arrow{
+    display:inline-block;
+    margin-left:8px;
+    font-size:17px;
+}
+
+/* Footer */
+
+.footer{
+    margin-top:19px;
+    color:#69877D;
+    font-size:9px;
+    letter-spacing:1px;
+    line-height:1.7;
+}
+
+.footer strong{
+    color:#9AEFCB;
+}
+
+@media(max-height:700px){
+    .container{padding:10px;}
+    .card{padding:20px 19px;}
+    .logo-box{width:85px;height:85px;margin:15px auto;}
+    .divider{margin:15px auto;}
+    .features{margin:16px 0;}
+    .feature{padding:10px 5px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+<div class="particle p4"></div>
+
+<main class="container">
+
+    <section class="card">
+
+        <div class="status">
+            <span class="dot"></span>
+            FOOTBALL INSIGHTS
+        </div>
+
+        <div class="logo-box">
+            <img src="logo.png" alt="FTK GABA BHAI Logo">
+        </div>
+
+        <h1 class="brand">
+            FTK GABA BHAI
+        </h1>
+
+        <p class="subtitle">
+            FOOTBALL • ANALYSIS • INSIGHTS
+        </p>
+
+        <div class="divider"></div>
+
+        <h2 class="heading">
+            Follow The Game.<br>
+            Understand The Numbers.
+        </h2>
+
+        <p class="description">
+            Explore football match insights, analytical perspectives
+            and regular updates from FTK GABA BHAI.
+        </p>
+
+        <div class="features">
+
+            <div class="feature">
+                <span>⚽</span>
+                Match Insights
+            </div>
+
+            <div class="feature">
+                <span>📊</span>
+                Game Analysis
+            </div>
+
+            <div class="feature">
+                <span>🎯</span>
+                Strategic Views
+            </div>
+
+            <div class="feature">
+                <span>⚡</span>
+                Regular Updates
+            </div>
+
+        </div>
+
+        <button
+            class="join-btn"
+            type="button"
+            onclick="window.open('https://t.me/+XoTBUjql2_BjOTBl','_blank','noopener')"
+        >
+            JOIN THE CHANNEL
+            <span class="arrow">↗</span>
+        </button>
+
+        <div class="footer">
+            INDEPENDENT FOOTBALL ANALYSIS & INSIGHTS<br>
+            <strong>FTK GABA BHAI</strong>
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>
+```
